@@ -1,5 +1,6 @@
-package com.blisssmp1;
+package com.blisssmp1.keys;
 
+import com.blisssmp1.BlissSmp1;
 import org.bukkit.NamespacedKey;
 
 // Defines custom NamespacedKey constants used to tag

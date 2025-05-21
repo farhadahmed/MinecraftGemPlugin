@@ -1,4 +1,4 @@
-package com.blisssmp1;
+package com.blisssmp1.tasks;
 
 import org.bukkit.*;
 import org.bukkit.entity.Player;
