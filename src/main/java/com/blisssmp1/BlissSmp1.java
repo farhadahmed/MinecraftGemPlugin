@@ -1,5 +1,6 @@
 package com.blisssmp1;
 
+import com.blisssmp1.commands.GiveGemCommand;
 import com.blisssmp1.listeners.FireGemListener;
 import com.blisssmp1.tasks.FireGemTask;
 import org.bukkit.event.Listener;
@@ -17,7 +18,8 @@ public final class BlissSmp1 extends JavaPlugin implements Listener {
 
         getServer().getPluginManager().registerEvents(new FireGemListener(), this);
 
-        getCommand("firegem").setExecutor(new CustomItems());
+//        getCommand("firegem").setExecutor(new CustomItems());
+        getCommand("givegem").setExecutor(new GiveGemCommand());
 
         CustomRecipes.register();
 

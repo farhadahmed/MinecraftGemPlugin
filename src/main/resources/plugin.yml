@@ -3,10 +3,14 @@ version: '${project.version}'
 main: com.blisssmp1.BlissSmp1
 api-version: '1.20'
 commands:
-  firegem:
-    description: "spawns the fire gem"
-    usage: "/FireGem"
-    aliases: [ BlissSmp1]
-    permission: bliss.command.firegem
-    permission-message: "you do not have permission to run this command"
+  givegem:
+    description: "Gives a gem"
+    usage: "/givegem <type>"
+    permission: bliss.command.givegem
+#  firegem:
+#    description: "spawns the fire gem"
+#    usage: "/FireGem"
+#    aliases: [ BlissSmp1]
+#    permission: bliss.command.firegem
+#    permission-message: "you do not have permission to run this command"
 
