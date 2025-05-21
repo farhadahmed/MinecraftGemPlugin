@@ -29,7 +29,6 @@ public class FireGemListener implements Listener {
 
         if (displayName.equals(expected)) {
             player.launchProjectile(org.bukkit.entity.Fireball.class);
-            player.sendMessage(ChatColor.RED + "[Fire Gem]" + ChatColor.YELLOW + " Fireball launched!");
         }
     }
 }
