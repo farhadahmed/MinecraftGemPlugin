@@ -1,9 +1,13 @@
 package com.blisssmp1.tasks;
 
+import com.blisssmp1.gems.GemFactory;
+import com.blisssmp1.gems.GemType;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
+
+import java.util.Optional;
 
 /*
 Runs as a repeating background task, tick-by-tick.
@@ -27,23 +31,23 @@ public class FireGemTask implements Runnable {
         double particleDistance = 0.5;
 
         for (Player online : Bukkit.getOnlinePlayers()) {
-            ItemStack hand = online.getItemInHand();
+            ItemStack offHand = online.getInventory().getItemInOffHand();
 
-            if (hand.hasItemMeta() && hand.getItemMeta().getDisplayName().equals(ChatColor.DARK_RED + "Fire Gem")) {
+            Optional<GemType> type = GemFactory.getGemType(offHand);
+
+            if (type.isPresent() && type.get() == GemType.FIRE) {
                 Location location = online.getLocation().add(0, 1, 0);
+
                 for (double waypoint = 1; waypoint < length; waypoint += particleDistance) {
                     Vector vector = location.getDirection().multiply(waypoint);
                     location.add(vector);
 
-                    if (location.getBlock().getType() != Material.AIR)
-                        break;
+                    if (location.getBlock().getType() != Material.AIR) break;
 
-                    location.getWorld().spawnParticle(Particle.FLAME, location, 1, new Particle.DustOptions(Color.ORANGE, 0.75F));
+                    Particle.DustOptions dust = new Particle.DustOptions(Color.ORANGE, 1.25F);
+                    location.getWorld().spawnParticle(Particle.REDSTONE, location, 1, dust);
                 }
-
-
             }
-
         }
     }
 
